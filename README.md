@@ -1,0 +1,1 @@
+A responsive E-Commerce website using ASP.NET MVC & ADO.NET for secure shopping. Users can browse, add to cart, and checkout with role-based authentication. Admins manage products, orders, and categories. Built with SQL Server, Bootstrap, and ASP.NET Identity
