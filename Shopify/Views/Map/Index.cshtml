@@ -1,0 +1,81 @@
+﻿@{
+    ViewBag.Title = "Google Map";
+}
+
+@{
+    var GoMapsApiKey = System.Configuration.ConfigurationManager.AppSettings["GoMapsApiKey"];
+}
+<h2>Enter an Address to Find the Location</h2>
+
+<input type="text" id="addressInput" placeholder="Enter address..." style="width: 300px; padding: 10px;">
+<button onclick="searchLocation()" style="padding: 10px 15px; cursor: pointer;">Search</button>
+<!-- Live Location Button -->
+<button id="liveLocationBtn" onclick="startLiveLocation()">
+    𖦏
+</button>
+<div id="map" style="height: 500px; width: 100%; margin-top: 20px;"></div>
+
+<script>
+    var map, marker;
+
+    function initMap() {
+        // Default location (New Delhi, India)
+        var defaultLocation = { lat: 28.6139, lng: 77.2090 }; // New Delhi, India
+
+        map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 10,
+            center: defaultLocation
+        });
+
+        marker = new google.maps.Marker({
+            position: defaultLocation,
+            map: map
+        });
+    }
+
+    function searchLocation() {
+        var address = document.getElementById("addressInput").value;
+        var apiKey = "@ViewBag.GoMapsApiKey"; // Replace with your Google Maps API Key
+        var url = `https://maps.gomaps.pro/maps/api/geocode/json?address=${encodeURIComponent(address)}&key=${apiKey}`;
+
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === "OK") {
+                    var location = data.results[0].geometry.location;
+                    map.setCenter(location);
+                    marker.setPosition(location);
+                    // Zoom in to the searched location
+                    map.setZoom(15); // Adjust zoom level as needed (15 is ideal for city/street level)
+                } else {
+                    alert("Location not found!");
+                }
+            }).catch(error => console.error("Error:", error));
+    }
+    function getLiveLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                function (position) {
+                    var userLocation = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+
+                    // Move map and marker to user's location
+                    map.setCenter(userLocation);
+                    marker.setPosition(userLocation);
+
+                    // Zoom in to the user's current location
+                    map.setZoom(15); // Adjust zoom level as needed
+                },
+                function (error) {
+                    console.error("Error getting location:", error);
+                    alert("Unable to fetch location. Please enable location services.");
+                }
+            );
+        } else {
+            alert("Geolocation is not supported by your browser.");
+        }
+    }
+
+</script>

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<ECommerce_Project.Models.WomenModel>
+@{
+    ViewBag.Title = "Women";
+}
+
+<div class="product-title text-center bg-primary text-white p-2  rounded">
+    <h2 class="m-0">Women Shoes</h2>
+</div>
+<div class="container-fluid ">
+
+    <div class="row">
+        @foreach (var item in Model.ToList())
+        {
+            <div class="col-sm-3 d-flex mt-3">
+                <div class="card h-100 d-flex flex-column" onclick="navigateToProduct('@Url.Action("ProductDetails", "Product", new { id = item.ProductId })')">
+                    <img src="@Url.Content(item.ProductImage)" class="card-img-top" alt="@item.ProductName">
+
+                    <!-- Category Highlight -->
+                    <span class="category-badge" style="position: absolute; top: 10px; left: 10px; background: rgba(255, 193, 7, 0.9); color: black; font-size: 14px; font-weight: bold; padding: 8px 12px; border-radius: 50%; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);">
+                        @item.Category
+                    </span>
+
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">@item.ProductName</h5>
+
+                        <!-- Truncated Description with Tooltip -->
+                        <p class="card-text text-truncate" data-bs-toggle="tooltip" title="@item.Description">
+                            @(item.Description.Length > 50 ? item.Description.Substring(0, 50) + "..." : item.Description)
+                        </p>
+
+                        <p class="card-text"><b>₹@item.Price</b></p>
+                        <p class="card-text">@item.Status</p>
+
+                        <!-- Add to Cart Button -->
+                        <a href="@Url.Action("AddToCart", "Cart", new { id = item.ProductId })"
+                           class="btn custom-cart-btn mt-auto add-to-cart"
+                           onclick="event.stopPropagation();" data-id="@item.ProductId">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
+
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Initialize Bootstrap Tooltip
+        document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el => new bootstrap.Tooltip(el));
+
+        // Add to Cart Click Event
+        document.querySelectorAll(".add-to-cart").forEach(button => {
+            button.addEventListener("click", function (event) {
+                event.stopPropagation(); // Prevent card click event from triggering
+                alert("Product " + this.dataset.id + " added to cart!");
+                // Add AJAX call to update the cart in session or database
+            });
+        });
+    });
+
+    function navigateToProduct(url) {
+        window.location.href = url;
+    }
+</script>
+

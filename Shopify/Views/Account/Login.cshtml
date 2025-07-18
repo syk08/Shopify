@@ -1,0 +1,56 @@
+﻿@model ECommerce_Project.Models.UserModel
+
+@{
+    ViewBag.Title = "Login";
+}
+
+@{
+    Layout = "~/Views/Shared/_LoginPartial.cshtml";
+}
+@*@Html.Raw(ViewBag.ErrorMessage)*@
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <p style="color: red;">@ViewBag.ErrorMessage</p>
+}
+
+<div class="form-signin">
+    @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken() <!-- Security token for CSRF protection -->
+
+        <img class="mb-4 login-brand" src="~/Image/BrandLogo/BrandLogo.png" alt="" width="70" height="60"> <b>E - SHOP</b>
+        <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+
+        <div class="form-floating">
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "name@example.com", id = "floatingInput" })
+            <label for="floatingInput">Email address</label>
+            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" }) <!-- Validation message -->
+        </div>
+
+        <div class="form-floating">
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password", id = "floatingPassword" })
+            <label for="floatingPassword">Password</label>
+            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" }) <!-- Validation message -->
+        </div>
+
+        <div class="form-check text-start my-3">
+            @Html.CheckBoxFor(m => m.RememberMe, new { @class = "form-check-input", id = "flexCheckDefault" })
+            <label class="form-check-label" for="flexCheckDefault">
+                Remember me
+            </label>
+        </div>
+
+        <button class="btn btn-outline-primary w-100 py-2 mb-2" type="submit">Sign in</button>
+        <div>
+            Create new Account:
+            @Html.ActionLink("Signup", "Signup", "Account", new { @class = "btn btn-outline-primary w-80" })
+        </div>
+    }
+</div>
+
+
+<script src="/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+
+

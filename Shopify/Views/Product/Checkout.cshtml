@@ -1,0 +1,71 @@
+﻿@model ECommerce_Project.Models.UserProductModel
+
+@{
+    ViewBag.title = "Checkout";
+}
+<!-- Checkout.cshtml -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="checkout-login d-flex justify-content-between align-items-center p-2 border rounded mb-3">
+                <div>
+                    <h4>LOGIN</h4>
+                    <p>Email : @Model.UserModel.Email</p>
+                </div>
+                <div class="btn btn-outline-primary ">CHANGE</div>
+            </div>
+            <div class="checkout-address d-flex justify-content-between align-items-center p-2 border rounded mb-3">
+                <div>
+                    <h4>ADDRESS</h4>
+                    <p>@Model.UserModel.FullName , 9935647810</p>
+                    <p>25, Block T, Gandhi Market, Sagarpur, New Delhi</p>
+                </div>
+                <div class="btn btn-outline-primary">CHANGE</div>
+            </div>
+            <div class="checkout-orderSummary d-flex align-items-center p-2 border rounded mb-3">
+
+                <div class="col-md-4 text-center">
+                    <img src="@Url.Content(Model.Products.ProductImage)" class="img-fluid rounded" alt="@Model.Products.ProductName" style="max-height: 250px; object-fit: cover;">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h4>@Model.Products.ProductName</h4>
+                    <p class="text-warning">MRP ₹@Model.Products.Price</p>
+                    <p class="text-danger">Quantity: (@Model.quantity item)</p>
+                    <b>Total: @(Model.Products.Price * Model.quantity)</b>
+                </div>
+                <div class="col-md-4 text-center">
+                    <p>Delivery By Tomorrow at @(DateTime.Now.AddHours(48).ToString("f"))</p>
+                </div>
+            </div>
+
+            <div class="checkout-email p-2 border rounded mb-3">
+                <p>Order confirmation email will be sent to <b>@Model.UserModel.Email</b></p>
+            </div>
+            <div class="checkout-payment d-flex justify-content-between align-items-center p-2 border rounded mb-3">
+                <div>
+                    <h4>PAYMENT OPTION</h4>
+                    @Html.RadioButton("SearchedBy", "COD", true) <text>Case On delivery</text>
+                </div>
+                <div class="btn btn-outline-primary ">CHANGE</div>
+            </div>
+            @using (Html.BeginForm(FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ActionLink("Place Order", "PlaceOrder", "Order", new { id = Model.Products.ProductId }, new { @class = "btn btn-warning w-100" })
+            }
+        </div>
+        <div class="col-md-4">
+            <div class="border rounded p-3 shadow-sm " style="position: fixed; top: 74px; right: 20px; width: 33%; ">
+                <p class="d-flex justify-content-between text-success"><strong>PRICE DETAILS</strong> </p>
+                <hr />
+                <p class="d-flex justify-content-between "><strong>Price:</strong> <span class="text-primary">₹@Model.Products.Price</span></p>
+                <p class="d-flex justify-content-between"><strong>Discount:</strong> <span class="text-success">- ₹@(@Model.Products.Price * 20 / 100)</span></p>
+                <p class="d-flex justify-content-between"><strong>Coupons for you:</strong> <span class="text-success">- ₹25</span></p>
+                <p class="d-flex justify-content-between"><strong>Delivery Charges:</strong> <span class="text-success">FREE</span></p>
+                <hr />
+                <p class="d-flex justify-content-between"><strong>Total Amount:</strong> <span class="text-warning">₹@(@Model.Products.Price - (@Model.Products.Price * 20 / 100) - 25)</span></p>
+            </div>
+        </div>
+    </div>
+</div>
+

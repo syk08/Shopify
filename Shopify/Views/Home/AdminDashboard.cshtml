@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "AdminDashboard";
+}
+
+@Html.Raw(TempData["LoginSuccessfullMessage"])
+@Html.Raw(ViewBag.RegisterMessage)
+    <h2 class="text-center">AdminDashboard</h2>
+    <hr />
+<div class="admin-body" style="display:flex; height:500px; width:auto;">
+    <div class="me-2">
+
+        @Html.ActionLink("All Products List", "Index", "Product", new { area = "" }, new { @class = "btn btn-outline-primary " })
+    </div>
+    <div>
+
+        @Html.ActionLink(" All Orders List ", "Index", "Order", new { area = "" }, new { @class = "btn btn-outline-primary " })
+    </div>
+</div>
+

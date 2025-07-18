@@ -1,0 +1,204 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+
+    @{
+        var GoMapsApiKey = System.Configuration.ConfigurationManager.AppSettings["GoMapsApiKey"];
+    }
+    <script src="https://maps.gomaps.pro/maps/api/js?key=@GoMapsApiKey&callback=initMap" async defer></script>
+
+    <style>
+        .card-img-top {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+        }
+
+        .product-title {
+            margin-top: 10px;
+        }
+
+        .custom-cart-btn {
+            background: linear-gradient(45deg, #5DADE2, #85C1E9); /* Light blue gradient */
+            color: white;
+            font-weight: bold;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 8px;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 8px rgba(93, 173, 226, 0.4);
+        }
+
+            .custom-cart-btn:hover {
+                background: linear-gradient(45deg, #3498DB, #5DADE2); /* Darker blue on hover */
+                box-shadow: 0 6px 12px rgba(52, 152, 219, 0.5);
+                transform: translateY(-2px);
+            }
+
+        .card {
+            border-radius: 15px;
+            transition: transform 0.3s;
+        }
+
+            .card:hover {
+                transform: scale(1.03);
+                box-shadow: 5px 5px 15px rgba(128, 128, 128, 0.5); /* Soft gray shadow */
+            }
+
+        #liveLocationBtn {
+            position: fixed; /* Fixed position like Google Maps */
+            top: 69px; /* Distance from bottom */
+            right: 20px; /* Distance from right */
+            width: 50px; /* Circular button */
+            height: 50px;
+            background-color: white; /* White background */
+            border-radius: 50%; /* Makes it circular */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+            border: none; /* No border */
+            font-size: 20px; /* Icon size */
+            text-align: center;
+            cursor: pointer;
+            outline: none;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+            #liveLocationBtn:hover {
+                background-color: #f1f1f1; /* Light gray on hover */
+                transform: scale(1.1); /* Slight zoom effect */
+            }
+
+            #liveLocationBtn:active {
+                background-color: #ddd; /* Darker gray on click */
+                transform: scale(0.95); /* Shrink effect */
+            }
+    </style>
+
+
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-primary fixed-top">
+        <div class="container">
+            <!-- Brand Logo -->
+            <img src="~/Image/BrandLogo/BrandLogo.png" alt="Brand Logo" class="rounded-circle" width="40" height="40">
+            @Html.ActionLink("ECOMMERCE", "CustomerDashboard", "Home", new { area = "" }, new { @class = "navbar-brand" })
+
+            <!-- Navbar Toggler -->
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    title="Toggle navigation" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar Links -->
+            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between" id="navbarNav">
+                <ul class="navbar-nav flex-grow-1">
+                    <!-- Home -->
+                    <li class="nav-item">
+                        @Html.ActionLink("Home", "CustomerDashboard", "Home", new { area = "" }, new { @class = "nav-link text-white" })
+                    </li>
+
+                    <!-- Men Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="menDropdown" role="button" data-bs-toggle="dropdown">
+                            Men
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="menDropdown">
+                            <li>@Html.ActionLink("Pants", "Pants", "Men", new { category = "Men", subcategory = "Pants" }, new { @class = "dropdown-item" })</li>
+                            <li>@Html.ActionLink("Shirts", "Shirt", "Men", new { category = "Men", subcategory = "Shirts" }, new { @class = "dropdown-item" })</li>
+                            <li>@Html.ActionLink("Shoes", "Shoes", "Men", new { category = "Men", subcategory = "Shoes" }, new { @class = "dropdown-item" })</li>
+                        </ul>
+                    </li>
+
+                    <!-- Women Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="womenDropdown" role="button" data-bs-toggle="dropdown">
+                            Women
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="womenDropdown">
+                            <li>@Html.ActionLink("Dresses", "Dresses", "Women", new { category = "Women", subcategory = "Dresses" }, new { @class = "dropdown-item" })</li>
+                            <li>@Html.ActionLink("Shoes", "Shoes", "Women", new { category = "Women", subcategory = "Shoes" }, new { @class = "dropdown-item" })</li>
+                            <li>@Html.ActionLink("Handbags", "Handbags", "Women", new { category = "Women", subcategory = "Handbags" }, new { @class = "dropdown-item" })</li>
+                        </ul>
+                    </li>
+
+                    <!-- Electronics Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="electronicsDropdown" role="button" data-bs-toggle="dropdown">
+                            Electronics
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="electronicsDropdown">
+                            <li>@Html.ActionLink("Watch", "Watch", "Electronics", new { category = "Electronics", subcategory = "Watch" }, new { @class = "dropdown-item" })</li>
+                            <li>@Html.ActionLink("TV", "Tv", "Electronics", new { category = "Electronics", subcategory = "TV" }, new { @class = "dropdown-item" })</li>
+                            <li>@Html.ActionLink("Headphones", "Headphones", "Electronics", new { category = "Electronics", subcategory = "Headphones" }, new { @class = "dropdown-item" })</li>
+                        </ul>
+                    </li>
+
+                    <!-- Services -->
+                    <li class="nav-item">
+                        @Html.ActionLink("Services", "Index", "Service", null, new { @class = "nav-link" })
+                    </li>
+                </ul>
+
+                <!-- Right Section: Buttons & Profile -->
+                <ul class="navbar-nav d-flex align-items-center text-center text-sm-start">
+                    <!-- Authentication Buttons -->
+                    <li class="nav-item ">
+                        @Html.ActionLink("Logout", "LogOut", "Account", null, new { @class = "btn btn-outline-light shadow-sm mt-1  nav-logout-btn" })
+                    </li>
+                    <!-- Profile Picture -->
+                    <li class="nav-item mt-1 mt-sm-0">
+                        <a class="nav-link text-white" href="@Url.Action("Profile", "Account")">
+                            <img src="@Convert.ToString(Session["ProfilePicture"]) ?? Url.Content(" ~ /uploads/default-profile.jpg")"
+                                 class="rounded-circle img-fluid" style="width: 2rem; height: auto; max-width: 100%;"
+                                 id="profileImg" onerror="this.onerror=null;this.src='/uploads/default-profile.jpg';" />
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="@Url.Action("Index", "Cart")" class="nav-link">
+                            <i class="fa fa-shopping-cart" aria-hidden="true" > cart</i>
+                            <span class="badge badge-danger">@Session["CartCount"]</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <br />
+   
+    <div class="container body-content ">
+        @RenderBody()
+    </div>
+
+            <hr />
+    <footer class="navbar navbar-inverse navbar-fixed-bottom ">
+        <div class="container mt-3 text-center">
+            <div class="Footer-text " style="width:40%; height:auto;">
+                <p class="navbar-text mt-1">Policies:Returns | Policy | Terms of use | Security | Privacy</p>
+            </div>
+            <div class="Footer-text " style="width:30%; height:auto;">
+                <p class="navbar-text mt-1">&copy; 2024 - 2025 ECommerce.com</p>
+            </div>
+            <div class="Footer-text text-center mt-1" style="width:30%; height:auto; ">
+                <p>Need help? Visit the Help Center or Contact Us</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

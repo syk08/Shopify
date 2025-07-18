@@ -1,0 +1,67 @@
+﻿@model ECommerce_Project.Models.Products
+
+<div class="container mt-5">
+    <div class="card shadow-lg p-4">
+        <h3 class="text-danger text-center">Are you sure you want to delete this?</h3>
+        <hr>
+
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <img src="@Url.Content(Model.ProductImage)" class="img-fluid rounded shadow" alt="@Model.ProductName" style="max-height: 200px; object-fit: cover;">
+            </div>
+            <div class="col-md-8">
+                <h4 class="text-primary">Product Details</h4>
+                <table class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.ProductId)</th>
+                            <td>@Html.DisplayFor(model => model.ProductId)</td>
+                        </tr>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.ProductName)</th>
+                            <td>@Html.DisplayFor(model => model.ProductName)</td>
+                        </tr>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.Description)</th>
+                            <td>@Html.DisplayFor(model => model.Description)</td>
+                        </tr>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.Category)</th>
+                            <td>@Html.DisplayFor(model => model.Category)</td>
+                        </tr>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.SubCategory)</th>
+                            <td>@Html.DisplayFor(model => model.SubCategory)</td>
+                        </tr>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.Brand)</th>
+                            <td>@Html.DisplayFor(model => model.Brand)</td>
+                        </tr>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.Status)</th>
+                            <td>@Html.DisplayFor(model => model.Status)</td>
+                        </tr>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.Price)</th>
+                            <td><b class="text-success">₹@Html.DisplayFor(model => model.Price)</b></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="text-center mt-4">
+            @using (Html.BeginForm("DeleteProduct", "Product", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+
+                <!-- Hidden fields to pass ProductId and Category to the HTTP POST request -->
+                @Html.HiddenFor(model => model.ProductId)
+                @Html.HiddenFor(model => model.Category)
+
+                <button type="submit" class="btn btn-danger px-4">Delete</button>
+                @Html.ActionLink("Cancel", "Index", null, new { @class = "btn btn-secondary px-4" })
+            }
+        </div>
+    </div>
+</div>

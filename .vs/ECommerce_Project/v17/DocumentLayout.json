@@ -1,0 +1,139 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Lenovo\\source\\Sameer\\ECommerce_Project\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{66862DAE-27C0-4181-BB5C-16A7531B0DC0}|ECommerce_Project\\ECommerce_Project.csproj|c:\\users\\lenovo\\source\\sameer\\ecommerce_project\\ecommerce_project\\controllers\\electronicscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{66862DAE-27C0-4181-BB5C-16A7531B0DC0}|ECommerce_Project\\ECommerce_Project.csproj|solutionrelative:ecommerce_project\\controllers\\electronicscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{66862DAE-27C0-4181-BB5C-16A7531B0DC0}|ECommerce_Project\\ECommerce_Project.csproj|c:\\users\\lenovo\\source\\sameer\\ecommerce_project\\ecommerce_project\\views\\men\\shirt.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{66862DAE-27C0-4181-BB5C-16A7531B0DC0}|ECommerce_Project\\ECommerce_Project.csproj|solutionrelative:ecommerce_project\\views\\men\\shirt.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{66862DAE-27C0-4181-BB5C-16A7531B0DC0}|ECommerce_Project\\ECommerce_Project.csproj|c:\\users\\lenovo\\source\\sameer\\ecommerce_project\\ecommerce_project\\controllers\\mencontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{66862DAE-27C0-4181-BB5C-16A7531B0DC0}|ECommerce_Project\\ECommerce_Project.csproj|solutionrelative:ecommerce_project\\controllers\\mencontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{66862DAE-27C0-4181-BB5C-16A7531B0DC0}|ECommerce_Project\\ECommerce_Project.csproj|c:\\users\\lenovo\\source\\sameer\\ecommerce_project\\ecommerce_project\\views\\error\\notfound.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{66862DAE-27C0-4181-BB5C-16A7531B0DC0}|ECommerce_Project\\ECommerce_Project.csproj|solutionrelative:ecommerce_project\\views\\error\\notfound.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{66862DAE-27C0-4181-BB5C-16A7531B0DC0}|ECommerce_Project\\ECommerce_Project.csproj|c:\\users\\lenovo\\source\\sameer\\ecommerce_project\\ecommerce_project\\controllers\\errorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{66862DAE-27C0-4181-BB5C-16A7531B0DC0}|ECommerce_Project\\ECommerce_Project.csproj|solutionrelative:ecommerce_project\\controllers\\errorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{66862DAE-27C0-4181-BB5C-16A7531B0DC0}|ECommerce_Project\\ECommerce_Project.csproj|c:\\users\\lenovo\\source\\sameer\\ecommerce_project\\ecommerce_project\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{66862DAE-27C0-4181-BB5C-16A7531B0DC0}|ECommerce_Project\\ECommerce_Project.csproj|solutionrelative:ecommerce_project\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{66862DAE-27C0-4181-BB5C-16A7531B0DC0}|ECommerce_Project\\ECommerce_Project.csproj|c:\\users\\lenovo\\source\\sameer\\ecommerce_project\\ecommerce_project\\controllers\\mapcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{66862DAE-27C0-4181-BB5C-16A7531B0DC0}|ECommerce_Project\\ECommerce_Project.csproj|solutionrelative:ecommerce_project\\controllers\\mapcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 173,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ElectronicsController.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\source\\Sameer\\ECommerce_Project\\ECommerce_Project\\Controllers\\ElectronicsController.cs",
+              "RelativeDocumentMoniker": "ECommerce_Project\\Controllers\\ElectronicsController.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\source\\Sameer\\ECommerce_Project\\ECommerce_Project\\Controllers\\ElectronicsController.cs",
+              "RelativeToolTip": "ECommerce_Project\\Controllers\\ElectronicsController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACwAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-01T20:31:10.525Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Shirt.cshtml",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\source\\Sameer\\ECommerce_Project\\ECommerce_Project\\Views\\Men\\Shirt.cshtml",
+              "RelativeDocumentMoniker": "ECommerce_Project\\Views\\Men\\Shirt.cshtml",
+              "ToolTip": "C:\\Users\\Lenovo\\source\\Sameer\\ECommerce_Project\\ECommerce_Project\\Views\\Men\\Shirt.cshtml",
+              "RelativeToolTip": "ECommerce_Project\\Views\\Men\\Shirt.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-01T20:25:43.266Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MenController.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\source\\Sameer\\ECommerce_Project\\ECommerce_Project\\Controllers\\MenController.cs",
+              "RelativeDocumentMoniker": "ECommerce_Project\\Controllers\\MenController.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\source\\Sameer\\ECommerce_Project\\ECommerce_Project\\Controllers\\MenController.cs",
+              "RelativeToolTip": "ECommerce_Project\\Controllers\\MenController.cs",
+              "ViewState": "AQIAABYAAAAAAAAAAAAQwCAAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-01T20:21:57.312Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "NotFound.cshtml",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\source\\Sameer\\ECommerce_Project\\ECommerce_Project\\Views\\Error\\NotFound.cshtml",
+              "RelativeDocumentMoniker": "ECommerce_Project\\Views\\Error\\NotFound.cshtml",
+              "ToolTip": "C:\\Users\\Lenovo\\source\\Sameer\\ECommerce_Project\\ECommerce_Project\\Views\\Error\\NotFound.cshtml",
+              "RelativeToolTip": "ECommerce_Project\\Views\\Error\\NotFound.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-01T19:29:51.621Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ErrorController.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\source\\Sameer\\ECommerce_Project\\ECommerce_Project\\Controllers\\ErrorController.cs",
+              "RelativeDocumentMoniker": "ECommerce_Project\\Controllers\\ErrorController.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\source\\Sameer\\ECommerce_Project\\ECommerce_Project\\Controllers\\ErrorController.cs",
+              "RelativeToolTip": "ECommerce_Project\\Controllers\\ErrorController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-01T19:29:13.612Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Web.config",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\source\\Sameer\\ECommerce_Project\\ECommerce_Project\\Web.config",
+              "RelativeDocumentMoniker": "ECommerce_Project\\Web.config",
+              "ToolTip": "C:\\Users\\Lenovo\\source\\Sameer\\ECommerce_Project\\ECommerce_Project\\Web.config",
+              "RelativeToolTip": "ECommerce_Project\\Web.config",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-03-01T19:27:16.563Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MapController.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\source\\Sameer\\ECommerce_Project\\ECommerce_Project\\Controllers\\MapController.cs",
+              "RelativeDocumentMoniker": "ECommerce_Project\\Controllers\\MapController.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\source\\Sameer\\ECommerce_Project\\ECommerce_Project\\Controllers\\MapController.cs",
+              "RelativeToolTip": "ECommerce_Project\\Controllers\\MapController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-01T18:57:03.814Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

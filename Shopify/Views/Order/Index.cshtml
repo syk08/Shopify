@@ -1,0 +1,59 @@
+﻿@model List<ECommerce_Project.Models.OrderModel>
+
+@{
+    ViewBag.title = "CheckOrders";
+}
+
+
+
+<div class="container mt-4">
+    <div class=" mt-3">
+        <a href="@Url.Action("AdminDashboard", "Home")" class="btn btn-outline-success">🔙 Back To Admin </a>
+    </div>
+    <h2 class="text-center mb-4">My Orders</h2>
+
+    @if (Model != null && Model.Any())
+    {
+        <div class=" shadow p-3">
+            <div class="table-responsive">
+                <table class="table table-striped align-middle text-center">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Status</th>
+                            <th>Order Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var order in Model.ToList())
+                        {
+                            <tr>
+                                <td>@order.OrderId</td>
+                                <td>@order.ProductName</td>
+                                <td>@order.ProductQuantity</td>
+                                <td>₹@order.ProductPrice.ToString("0.00")</td>
+                                <td>
+                                    <span class="badge bg-warning" )">Pending</span>
+                                </td>
+                                <td>@order.OrderTime.ToString("MMMM dd, yyyy")</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-info text-center" role="alert">
+            No orders found. Start shopping now!
+        </div>
+    }
+
+
+</div>
+
+

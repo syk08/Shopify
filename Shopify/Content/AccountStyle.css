@@ -1,0 +1,21 @@
+﻿.form-signin {
+    height: 500px;
+    width: 330px;
+    border: 2px solid black;
+    border-radius: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.form-floating{
+    margin-bottom:10px;
+}
+.login-brand{
+    border-radius:50%;
+}

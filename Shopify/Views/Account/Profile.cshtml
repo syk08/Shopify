@@ -1,0 +1,70 @@
+﻿@model ECommerce_Project.Models.ProfileModel
+
+@{
+    ViewBag.Title = "Profile";
+}
+
+<div class="container mt-4">
+    <h2 class="text-center">My Profile</h2>
+
+    <div class="card p-4">
+        <div class="d-flex align-items-center justify-content-between">
+            <!-- Profile Picture -->
+            <div class="profile-img text-center">
+                <img src="@Model.ProfilePicture" class="rounded-circle border" width="150" height="150" id="profilePreview" />
+            </div>
+
+            <!-- User Details -->
+            <div class="user-details text-center">
+                <h4 class="mt-3">@Model.FullName</h4>
+                <p class="text-muted">@Model.Email</p>
+            </div>
+
+            <!-- Profile Save -->
+            <div class="profile-save text-center">
+                <form method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <input type="file" id="profileImage" name="profileImage" class="d-none" onchange="previewImage(this)" />
+                        <label for="profileImage" class="btn btn-primary">Upload Profile Picture</label>
+                    </div>
+
+                    <button type="submit" class="btn btn-success mt-2">Save Photo</button>
+                </form>
+            </div>
+        </div>
+        <br />
+        <hr />
+        <!-- Orders Button -->
+        <div class=" mt-3">
+            @Html.ActionLink("Orders", "CheckOrders", "Order", null, new { @class = "btn btn-outline-warning" })
+        </div>
+        <div class=" mt-3">
+            @Html.ActionLink("Login", "Login", "Account", null, new { @class = "btn btn-outline-warning" })
+        </div>
+        <div class=" mt-3">
+            @Html.ActionLink("SignUp", "Signup", "Account", null, new { @class = "btn btn-outline-warning" })
+        </div>
+        <div class=" mt-3">
+            @Html.ActionLink("Go to Map", "Index", "Map", null, new { @class = "btn btn-outline-warning" })
+        </div>
+
+        <!-- Success Message -->
+        @if (ViewBag.Message != null)
+        {
+            <p class="alert alert-success mt-3 text-center">@ViewBag.Message</p>
+        }
+    </div>
+</div>
+       
+
+<script>
+    function previewImage(input) {
+        var reader = new FileReader();
+        reader.onload = function () {
+            var output = document.getElementById('profilePreview');
+            output.src = reader.result;
+        };
+        reader.readAsDataURL(input.target.files[0]);
+    }
+</script>
+

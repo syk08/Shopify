@@ -1,0 +1,57 @@
+﻿@model ECommerce_Project.Models.Products
+
+<div class="container mt-5">
+    <div class="card shadow-lg p-4">
+        <h3 class="text-primary text-center">Product Details</h3>
+        <hr>
+
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <img src="@Url.Content(Model.ProductImage)" class="img-fluid rounded shadow" alt="@Model.ProductName" style="max-height: 250px; object-fit: cover;">
+            </div>
+            <div class="col-md-8">
+                <table class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.ProductId)</th>
+                            <td>@Html.DisplayFor(model => model.ProductId)</td>
+                        </tr>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.ProductName)</th>
+                            <td>@Html.DisplayFor(model => model.ProductName)</td>
+                        </tr>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.Description)</th>
+                            <td>@Html.DisplayFor(model => model.Description)</td>
+                        </tr>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.Category)</th>
+                            <td>@Html.DisplayFor(model => model.Category)</td>
+                        </tr>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.SubCategory)</th>
+                            <td>@Html.DisplayFor(model => model.SubCategory)</td>
+                        </tr>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.Brand)</th>
+                            <td>@Html.DisplayFor(model => model.Brand)</td>
+                        </tr>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.Status)</th>
+                            <td>@Html.DisplayFor(model => model.Status)</td>
+                        </tr>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.Price)</th>
+                            <td><b class="text-success">₹@Html.DisplayFor(model => model.Price)</b></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="text-center mt-4">
+            @Html.ActionLink("Edit", "Edit", new { id = Model.ProductId }, new { @class = "btn btn-warning px-4" })
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-secondary px-4" })
+        </div>
+    </div>
+</div>

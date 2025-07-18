@@ -1,0 +1,57 @@
+﻿@model IEnumerable<ECommerce_Project.Models.CartModel>
+
+@{
+    ViewBag.title = "Index";
+}
+<h2 class="text-center" >Shopping Cart 🛒</h2>
+<hr />
+@if (Model != null && Model.Any())
+{
+    <div class="Cart-item">
+        @foreach (var item in Model)
+        {
+            <div class="container mt-3">
+                <div class="card  p-4">
+                    <div class="row align-items-center">
+                        <!-- Product Image -->
+                        <div class="col-12 col-sm-6 col-md-4 text-center mb-3 mb-md-0">
+                            <img src="@Url.Content(item.ImageUrl)" class="img-fluid rounded" alt="@item.ProductName" style="max-height: 250px; object-fit: contain;">
+                        </div>
+                        <!-- Product Details -->
+                        <div class="col-12 col-sm-6 col-md-4  text-md-left">
+                            <h3>@item.ProductName</h3>
+                            <p class="text-warning">MRP ₹@item.Price</p>
+                            <p class="text-danger">Quantity: (@item.Quantity item)</p>
+                            <b>Total: ₹@(item.Price * item.Quantity)</b>
+                        </div>
+                        <!-- Action Buttons -->
+                        <div class="col-12 col-md-4 text-center mt-4 mt-md-0">
+                            <div class="mb-3">
+                                @Html.ActionLink("Remove", "RemoveFromCart", "Cart", new { id = item.Id }, new { @class = "btn btn-danger px-4 w-100" })
+                            </div>
+                            <div>
+                                @Html.ActionLink("Buy Now", "Checkout", "Product", new { id = item.ProductId }, new { @class = "btn btn-warning px-4 w-100" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        }
+        @if (ViewBag.Deletecart != null)
+        {
+            <p class="alert alert-success mt-3">@ViewBag.Deletecart</p>
+        }
+    </div>
+
+}
+else
+{
+    <div class="alert alert-info text-center">
+        <p>Your cart is empty. Start shopping now!</p>
+        @Html.ActionLink("Go to Shop", "Index", "Product", null, new { @class = "btn btn-primary" })
+    </div>
+}
+
+
+
